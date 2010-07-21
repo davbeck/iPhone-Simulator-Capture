@@ -1,0 +1,122 @@
+// !$*UTF8*$!
+{
+	05062E9F11A51ACA00656CA1 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	05062EA011A51ACA00656CA1 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	05062EA711A51AF100656CA1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 63B4FCC1108BE6760003CA1F /* SimulatorBridge.h */;
+		name = "SimulatorBridge.h: 9";
+		rLen = 0;
+		rLoc = 160;
+		rType = 0;
+		vrLen = 693;
+		vrLoc = 3;
+	};
+	05062EA811A51AF100656CA1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 63B4FBE4108BDB5B0003CA1F /* iPhone Simulator.h */;
+		name = "iPhone Simulator.h: 182";
+		rLen = 0;
+		rLoc = 5320;
+		rType = 0;
+		vrLen = 927;
+		vrLoc = 4494;
+	};
+	05062EE711A51B8200656CA1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 637588C7108CE6A700E8C9C5 /* ISCRecording.m */;
+		name = "ISCRecording.m: 186";
+		rLen = 0;
+		rLoc = 4670;
+		rType = 0;
+		vrLen = 920;
+		vrLoc = 3750;
+	};
+	05062F0311A51B8800656CA1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 637588C7108CE6A700E8C9C5 /* ISCRecording.m */;
+		name = "ISCRecording.m: 186";
+		rLen = 0;
+		rLoc = 4670;
+		rType = 0;
+		vrLen = 918;
+		vrLoc = 3752;
+	};
+	089C1669FE841209C02AAC07 /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeSDKPreference = macosx10.6;
+		activeTarget = 8D5B49AC048680CD000E48DA /* iPhone Simulator Capture */;
+		codeSenseManager = 05062EA011A51ACA00656CA1 /* Code sense */;
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					398,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 296033156;
+			PBXWorkspaceStateSaveDate = 296033156;
+		};
+		perUserProjectItems = {
+			05062EA711A51AF100656CA1 /* PBXTextBookmark */ = 05062EA711A51AF100656CA1 /* PBXTextBookmark */;
+			05062EA811A51AF100656CA1 /* PBXTextBookmark */ = 05062EA811A51AF100656CA1 /* PBXTextBookmark */;
+			05062EE711A51B8200656CA1 /* PBXTextBookmark */ = 05062EE711A51B8200656CA1 /* PBXTextBookmark */;
+			05062F0311A51B8800656CA1 /* PBXTextBookmark */ = 05062F0311A51B8800656CA1 /* PBXTextBookmark */;
+		};
+		sourceControlManager = 05062E9F11A51ACA00656CA1 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	637588C7108CE6A700E8C9C5 /* ISCRecording.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {859, 3211}}";
+			sepNavSelRange = "{4670, 0}";
+			sepNavVisRange = "{3752, 918}";
+		};
+	};
+	63B4FBE4108BDB5B0003CA1F /* iPhone Simulator.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 7540}}";
+			sepNavSelRange = "{5320, 0}";
+			sepNavVisRange = "{4494, 927}";
+		};
+	};
+	63B4FCC1108BE6760003CA1F /* SimulatorBridge.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {915, 819}}";
+			sepNavSelRange = "{160, 0}";
+			sepNavVisRange = "{3, 693}";
+		};
+	};
+	8D5B49AC048680CD000E48DA /* iPhone Simulator Capture */ = {
+		activeExec = 0;
+	};
+}

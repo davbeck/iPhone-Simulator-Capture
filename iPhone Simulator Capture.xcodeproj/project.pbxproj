@@ -1,0 +1,417 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6300CDFD1085394200ADF370 /* ISCController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6300CDFC1085394200ADF370 /* ISCController.m */; };
+		6300CFE1108570D500ADF370 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6300CFE0108570D500ADF370 /* QTKit.framework */; };
+		6300D12710861EF600ADF370 /* PluginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6300D12610861EF600ADF370 /* PluginController.xib */; };
+		630CE46111E687E700E6696C /* ISCDeviceType.m in Sources */ = {isa = PBXBuildFile; fileRef = 630CE46011E687E700E6696C /* ISCDeviceType.m */; };
+		6344830D1087C17C00EB2CE7 /* Hover.png in Resources */ = {isa = PBXBuildFile; fileRef = 6344830C1087C17C00EB2CE7 /* Hover.png */; };
+		6344830F1087C18700EB2CE7 /* Active.png in Resources */ = {isa = PBXBuildFile; fileRef = 6344830E1087C18700EB2CE7 /* Active.png */; };
+		634483B11087DB8100EB2CE7 /* ImageRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 634483B01087DB8100EB2CE7 /* ImageRect.m */; };
+		634483E31087E31600EB2CE7 /* FadeFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 634483E21087E31600EB2CE7 /* FadeFrame.png */; };
+		63684EE910880E2100A390D5 /* Overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 63684EE810880E2100A390D5 /* Overlay.png */; };
+		637588C8108CE6A700E8C9C5 /* ISCRecording.m in Sources */ = {isa = PBXBuildFile; fileRef = 637588C7108CE6A700E8C9C5 /* ISCRecording.m */; };
+		63758C98108D7E4200E8C9C5 /* DABTimeIntervalFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 63758C97108D7E4200E8C9C5 /* DABTimeIntervalFormatter.m */; };
+		63775E9D1086B2A600816786 /* RecordButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 63775E9B1086B2A600816786 /* RecordButton.png */; };
+		63775EA61086B3BF00816786 /* StopButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 63775EA51086B3BF00816786 /* StopButton.png */; };
+		6378D6BC10B3310500FF021A /* ISCArraySections.m in Sources */ = {isa = PBXBuildFile; fileRef = 6378D6BB10B3310500FF021A /* ISCArraySections.m */; };
+		63B4F17A10892B5A0003CA1F /* ISCFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B4F17910892B5A0003CA1F /* ISCFrame.m */; };
+		63B4F4DA108980F20003CA1F /* ISCAppDelegateDelay.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B4F4D9108980F20003CA1F /* ISCAppDelegateDelay.m */; };
+		63B4F6AA108A4E930003CA1F /* ISCPreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B4F6A9108A4E930003CA1F /* ISCPreferenceController.m */; };
+		63B4F6AC108A508E0003CA1F /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63B4F6AB108A508E0003CA1F /* Preferences.xib */; };
+		63B4FC5F108BE0400003CA1F /* FakeApps in Resources */ = {isa = PBXBuildFile; fileRef = 63B4FC4C108BE0400003CA1F /* FakeApps */; };
+		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
+		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		32DBCF630370AF2F00C91783 /* Simulator Plugin_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Simulator Plugin_Prefix.pch"; sourceTree = "<group>"; };
+		6300CDFB1085394200ADF370 /* ISCController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCController.h; sourceTree = "<group>"; };
+		6300CDFC1085394200ADF370 /* ISCController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCController.m; sourceTree = "<group>"; };
+		6300CFE0108570D500ADF370 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = System/Library/Frameworks/QTKit.framework; sourceTree = SDKROOT; };
+		6300D12610861EF600ADF370 /* PluginController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PluginController.xib; sourceTree = "<group>"; };
+		630CE45F11E687E700E6696C /* ISCDeviceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCDeviceType.h; sourceTree = "<group>"; };
+		630CE46011E687E700E6696C /* ISCDeviceType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCDeviceType.m; sourceTree = "<group>"; };
+		6344830C1087C17C00EB2CE7 /* Hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hover.png; sourceTree = "<group>"; };
+		6344830E1087C18700EB2CE7 /* Active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Active.png; sourceTree = "<group>"; };
+		634483AF1087DB8100EB2CE7 /* ImageRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageRect.h; sourceTree = "<group>"; };
+		634483B01087DB8100EB2CE7 /* ImageRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageRect.m; sourceTree = "<group>"; };
+		634483E21087E31600EB2CE7 /* FadeFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FadeFrame.png; sourceTree = "<group>"; };
+		63684EE810880E2100A390D5 /* Overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Overlay.png; sourceTree = "<group>"; };
+		637588C6108CE6A700E8C9C5 /* ISCRecording.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCRecording.h; sourceTree = "<group>"; };
+		637588C7108CE6A700E8C9C5 /* ISCRecording.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCRecording.m; sourceTree = "<group>"; };
+		63758C96108D7E4200E8C9C5 /* DABTimeIntervalFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DABTimeIntervalFormatter.h; sourceTree = "<group>"; };
+		63758C97108D7E4200E8C9C5 /* DABTimeIntervalFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DABTimeIntervalFormatter.m; sourceTree = "<group>"; };
+		63775E9B1086B2A600816786 /* RecordButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecordButton.png; sourceTree = "<group>"; };
+		63775EA51086B3BF00816786 /* StopButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StopButton.png; sourceTree = "<group>"; };
+		6378D6BA10B3310500FF021A /* ISCArraySections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCArraySections.h; sourceTree = "<group>"; };
+		6378D6BB10B3310500FF021A /* ISCArraySections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCArraySections.m; sourceTree = "<group>"; };
+		637FD44211A74C3E00566C47 /* DABCommonMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DABCommonMacros.h; sourceTree = "<group>"; };
+		637FD44311A74C3E00566C47 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
+		637FD44411A74C3E00566C47 /* DebugLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugLog.h; sourceTree = "<group>"; };
+		637FD44511A74C3E00566C47 /* IsEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IsEmpty.h; sourceTree = "<group>"; };
+		637FD44611A74C3E00566C47 /* CustomProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomProperties.h; sourceTree = "<group>"; };
+		63B4F17810892B5A0003CA1F /* ISCFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCFrame.h; sourceTree = "<group>"; };
+		63B4F17910892B5A0003CA1F /* ISCFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCFrame.m; sourceTree = "<group>"; };
+		63B4F4D8108980F20003CA1F /* ISCAppDelegateDelay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCAppDelegateDelay.h; sourceTree = "<group>"; };
+		63B4F4D9108980F20003CA1F /* ISCAppDelegateDelay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCAppDelegateDelay.m; sourceTree = "<group>"; };
+		63B4F6A8108A4E930003CA1F /* ISCPreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCPreferenceController.h; sourceTree = "<group>"; };
+		63B4F6A9108A4E930003CA1F /* ISCPreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCPreferenceController.m; sourceTree = "<group>"; };
+		63B4F6AB108A508E0003CA1F /* Preferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
+		63B4F746108A5A7C0003CA1F /* Notes.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Notes.rtf; sourceTree = "<group>"; };
+		63B4FBE4108BDB5B0003CA1F /* iPhone Simulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iPhone Simulator.h"; sourceTree = "<group>"; };
+		63B4FC4C108BE0400003CA1F /* FakeApps */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FakeApps; sourceTree = "<group>"; };
+		63B4FCC1108BE6760003CA1F /* SimulatorBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulatorBridge.h; sourceTree = "<group>"; };
+		8D5B49B6048680CD000E48DA /* iPhone Simulator Capture.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iPhone Simulator Capture.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D5B49B3048680CD000E48DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
+				6300CFE1108570D500ADF370 /* QTKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* Simulator Plugin */ = {
+			isa = PBXGroup;
+			children = (
+				63B4F746108A5A7C0003CA1F /* Notes.rtf */,
+				08FB77AFFE84173DC02AAC07 /* Classes */,
+				63B4F69D108A4E0F0003CA1F /* Categories */,
+				32C88E010371C26100C91783 /* Other Sources */,
+				089C167CFE841241C02AAC07 /* Resources */,
+				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
+				19C28FB8FE9D52D311CA2CBB /* Products */,
+			);
+			name = "Simulator Plugin";
+			sourceTree = "<group>";
+		};
+		089C1671FE841209C02AAC07 /* Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				637FD44111A74C3E00566C47 /* CommonMacros */,
+				63B4FBE4108BDB5B0003CA1F /* iPhone Simulator.h */,
+				63B4FCC1108BE6760003CA1F /* SimulatorBridge.h */,
+				1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */,
+				1058C7AEFEA557BF11CA2CBB /* Other Frameworks */,
+			);
+			name = "Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C167CFE841241C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				63B4FC4C108BE0400003CA1F /* FakeApps */,
+				634483E21087E31600EB2CE7 /* FadeFrame.png */,
+				6344830E1087C18700EB2CE7 /* Active.png */,
+				6344830C1087C17C00EB2CE7 /* Hover.png */,
+				63775E9B1086B2A600816786 /* RecordButton.png */,
+				63775EA51086B3BF00816786 /* StopButton.png */,
+				63684EE810880E2100A390D5 /* Overlay.png */,
+				8D5B49B7048680CD000E48DA /* Info.plist */,
+				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
+				6300D12610861EF600ADF370 /* PluginController.xib */,
+				63B4F6AB108A508E0003CA1F /* Preferences.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08FB77AFFE84173DC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6300CDFB1085394200ADF370 /* ISCController.h */,
+				6300CDFC1085394200ADF370 /* ISCController.m */,
+				637588C6108CE6A700E8C9C5 /* ISCRecording.h */,
+				637588C7108CE6A700E8C9C5 /* ISCRecording.m */,
+				63B4F17810892B5A0003CA1F /* ISCFrame.h */,
+				63B4F17910892B5A0003CA1F /* ISCFrame.m */,
+				63B4F4D8108980F20003CA1F /* ISCAppDelegateDelay.h */,
+				63B4F4D9108980F20003CA1F /* ISCAppDelegateDelay.m */,
+				63B4F6A8108A4E930003CA1F /* ISCPreferenceController.h */,
+				63B4F6A9108A4E930003CA1F /* ISCPreferenceController.m */,
+				63758C96108D7E4200E8C9C5 /* DABTimeIntervalFormatter.h */,
+				63758C97108D7E4200E8C9C5 /* DABTimeIntervalFormatter.m */,
+				630CE45F11E687E700E6696C /* ISCDeviceType.h */,
+				630CE46011E687E700E6696C /* ISCDeviceType.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7AEFEA557BF11CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				089C167FFE841241C02AAC07 /* AppKit.framework */,
+				D2F7E65807B2D6F200F64583 /* CoreData.framework */,
+				089C1672FE841209C02AAC07 /* Foundation.framework */,
+				6300CFE0108570D500ADF370 /* QTKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FB8FE9D52D311CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D5B49B6048680CD000E48DA /* iPhone Simulator Capture.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		32C88E010371C26100C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32DBCF630370AF2F00C91783 /* Simulator Plugin_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		637FD44111A74C3E00566C47 /* CommonMacros */ = {
+			isa = PBXGroup;
+			children = (
+				637FD44211A74C3E00566C47 /* DABCommonMacros.h */,
+				637FD44311A74C3E00566C47 /* SynthesizeSingleton.h */,
+				637FD44411A74C3E00566C47 /* DebugLog.h */,
+				637FD44511A74C3E00566C47 /* IsEmpty.h */,
+				637FD44611A74C3E00566C47 /* CustomProperties.h */,
+			);
+			path = CommonMacros;
+			sourceTree = "<group>";
+		};
+		63B4F69D108A4E0F0003CA1F /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				634483AF1087DB8100EB2CE7 /* ImageRect.h */,
+				634483B01087DB8100EB2CE7 /* ImageRect.m */,
+				6378D6BA10B3310500FF021A /* ISCArraySections.h */,
+				6378D6BB10B3310500FF021A /* ISCArraySections.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D5B49AC048680CD000E48DA /* iPhone Simulator Capture */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "iPhone Simulator Capture" */;
+			buildPhases = (
+				8D5B49AF048680CD000E48DA /* Resources */,
+				8D5B49B1048680CD000E48DA /* Sources */,
+				8D5B49B3048680CD000E48DA /* Frameworks */,
+				6300CE5A10853DB700ADF370 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "iPhone Simulator Capture";
+			productInstallPath = "$(HOME)/Library/Bundles";
+			productName = "Simulator Plugin";
+			productReference = 8D5B49B6048680CD000E48DA /* iPhone Simulator Capture.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "David Beck";
+			};
+			buildConfigurationList = 1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "iPhone Simulator Capture" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 089C166AFE841209C02AAC07 /* Simulator Plugin */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D5B49AC048680CD000E48DA /* iPhone Simulator Capture */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D5B49AF048680CD000E48DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */,
+				6300D12710861EF600ADF370 /* PluginController.xib in Resources */,
+				63775E9D1086B2A600816786 /* RecordButton.png in Resources */,
+				63775EA61086B3BF00816786 /* StopButton.png in Resources */,
+				6344830D1087C17C00EB2CE7 /* Hover.png in Resources */,
+				6344830F1087C18700EB2CE7 /* Active.png in Resources */,
+				634483E31087E31600EB2CE7 /* FadeFrame.png in Resources */,
+				63684EE910880E2100A390D5 /* Overlay.png in Resources */,
+				63B4F6AC108A508E0003CA1F /* Preferences.xib in Resources */,
+				63B4FC5F108BE0400003CA1F /* FakeApps in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6300CE5A10853DB700ADF370 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# clean up any previous products/symbolic links in the Internet Plug-Ins folder\nif [ -a \"${USER_LIBRARY_DIR}/Application Support/SIMBL/Plugins/${FULL_PRODUCT_NAME}\" ]; then\n  rm -Rf \"${USER_LIBRARY_DIR}/Application Support/SIMBL/Plugins/${FULL_PRODUCT_NAME}\"\nfi\n\n# Depending on the build configuration, either copy or link to the most recent product\nif [ \"${CONFIGURATION}\" == \"Debug\" ]; then\n  # if we're debugging, add a symbolic link to the plug-in\n  ln -sf \"${TARGET_BUILD_DIR}/${FULL_PRODUCT_NAME}\" \\\n    \"${USER_LIBRARY_DIR}/Application Support/SIMBL/Plugins/${FULL_PRODUCT_NAME}\"\nelif [ \"${CONFIGURATION}\" == \"Release\" ]; then\n  # if we're compiling for release, just copy the plugin to the Internet Plug-ins folder\n  cp -Rfv \"${TARGET_BUILD_DIR}/${FULL_PRODUCT_NAME}\" \\\n    \"${USER_LIBRARY_DIR}/Application Support/SIMBL/Plugins/${FULL_PRODUCT_NAME}\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D5B49B1048680CD000E48DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6300CDFD1085394200ADF370 /* ISCController.m in Sources */,
+				634483B11087DB8100EB2CE7 /* ImageRect.m in Sources */,
+				63B4F17A10892B5A0003CA1F /* ISCFrame.m in Sources */,
+				63B4F4DA108980F20003CA1F /* ISCAppDelegateDelay.m in Sources */,
+				63B4F6AA108A4E930003CA1F /* ISCPreferenceController.m in Sources */,
+				637588C8108CE6A700E8C9C5 /* ISCRecording.m in Sources */,
+				63758C98108D7E4200E8C9C5 /* DABTimeIntervalFormatter.m in Sources */,
+				6378D6BC10B3310500FF021A /* ISCArraySections.m in Sources */,
+				630CE46111E687E700E6696C /* ISCDeviceType.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C167DFE841241C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C167EFE841241C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB913B08733D840010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = i386;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Simulator Plugin_Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				PRODUCT_NAME = "iPhone Simulator Capture";
+				SDKROOT = macosx10.4;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		1DEB913C08733D840010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = i386;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Simulator Plugin_Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				PRODUCT_NAME = "iPhone Simulator Capture";
+				SDKROOT = macosx10.5;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		1DEB913F08733D840010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG_MODE=YES";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		1DEB914008733D840010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "iPhone Simulator Capture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB913B08733D840010E9CD /* Debug */,
+				1DEB913C08733D840010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "iPhone Simulator Capture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB913F08733D840010E9CD /* Debug */,
+				1DEB914008733D840010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}
