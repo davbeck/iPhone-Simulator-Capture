@@ -232,6 +232,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -280,13 +282,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>16</integer>
-									<integer>2</integer>
+									<integer>47</integer>
+									<integer>46</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {186, 601}}</string>
+							<string>{{0, 385}, {186, 601}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -316,14 +318,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>ISCDeviceType.m</string>
+								<string>ISCAppDelegateDelay.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -331,11 +331,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>ISCDeviceType.m</string>
+										<string>ISCAppDelegateDelay.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>630CE47D11E6AA9400E6696C</string>
+										<string>6341F7C811F7BD1D00EC795C</string>
 										<key>history</key>
 										<array>
 											<string>63775EB81086B64E00816786</string>
@@ -370,7 +370,6 @@
 											<string>63B4F4AC108968F30003CA1F</string>
 											<string>63B4F69F108A4E330003CA1F</string>
 											<string>63B4F6A0108A4E330003CA1F</string>
-											<string>63B4F6A5108A4E330003CA1F</string>
 											<string>63758B3D108D5AB700E8C9C5</string>
 											<string>63BDAF4010995F26008F250D</string>
 											<string>63BDAF4310995F26008F250D</string>
@@ -385,7 +384,6 @@
 											<string>637FD2E911A621F200566C47</string>
 											<string>637FD30411A625E400566C47</string>
 											<string>637FD30611A625E400566C47</string>
-											<string>637FD31411A62A5600566C47</string>
 											<string>637FD42711A74AF400566C47</string>
 											<string>637FD45E11A74CDC00566C47</string>
 											<string>637FD45F11A74CDC00566C47</string>
@@ -395,7 +393,8 @@
 											<string>630CE47911E6AA9400E6696C</string>
 											<string>630CE47A11E6AA9400E6696C</string>
 											<string>630CE47B11E6AA9400E6696C</string>
-											<string>630CE47C11E6AA9400E6696C</string>
+											<string>6341F7C111F7B74C00EC795C</string>
+											<string>6341F7C211F7B74C00EC795C</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -453,9 +452,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>630CE43E11E648DB00E6696C</string>
+				<string>6341F7C411F7B74C00EC795C</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>630CE43F11E648DB00E6696C</string>
+				<string>6341F7C511F7B74C00EC795C</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -593,12 +592,9 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>630CE44211E648DB00E6696C</string>
-		<string>630CE44311E648DB00E6696C</string>
 		<string>6300CDF21085392000ADF370</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>1C78EAAD065D492600B07095</string>
-		<string>/Users/david/Documents/Programming/Projects/iPhone Simulator Capture/iPhone Simulator Capture.xcodeproj</string>
+		<string>/Users/david/Documents/Programming/Projects/iPhone-Simulator-Capture/iPhone Simulator Capture.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>0 118 1280 660 0 0 1280 778 </string>
@@ -617,12 +613,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string></string>
+								<string>ISCAppDelegateDelay.h</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -678,7 +676,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>6300CDF21085392000ADF370</string>
-				<string>630CE43211E648A200E6696C</string>
+				<string>6341F78D11F7B71F00EC795C</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -800,13 +798,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>630CE43311E648A200E6696C</string>
+				<string>6341F78E11F7B71F00EC795C</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>630CE43411E648A200E6696C</string>
-				<string>630CE43511E648A200E6696C</string>
-				<string>630CE43611E648A200E6696C</string>
-				<string>630CE43711E648A200E6696C</string>
-				<string>630CE43811E648A200E6696C</string>
+				<string>6341F78F11F7B71F00EC795C</string>
+				<string>6341F79011F7B71F00EC795C</string>
+				<string>6341F79111F7B71F00EC795C</string>
+				<string>6341F79211F7B71F00EC795C</string>
+				<string>6341F79311F7B71F00EC795C</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>

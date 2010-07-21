@@ -14,7 +14,6 @@
 		6344830D1087C17C00EB2CE7 /* Hover.png in Resources */ = {isa = PBXBuildFile; fileRef = 6344830C1087C17C00EB2CE7 /* Hover.png */; };
 		6344830F1087C18700EB2CE7 /* Active.png in Resources */ = {isa = PBXBuildFile; fileRef = 6344830E1087C18700EB2CE7 /* Active.png */; };
 		634483B11087DB8100EB2CE7 /* ImageRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 634483B01087DB8100EB2CE7 /* ImageRect.m */; };
-		634483E31087E31600EB2CE7 /* FadeFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 634483E21087E31600EB2CE7 /* FadeFrame.png */; };
 		63684EE910880E2100A390D5 /* Overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 63684EE810880E2100A390D5 /* Overlay.png */; };
 		637588C8108CE6A700E8C9C5 /* ISCRecording.m in Sources */ = {isa = PBXBuildFile; fileRef = 637588C7108CE6A700E8C9C5 /* ISCRecording.m */; };
 		63758C98108D7E4200E8C9C5 /* DABTimeIntervalFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 63758C97108D7E4200E8C9C5 /* DABTimeIntervalFormatter.m */; };
@@ -46,7 +45,6 @@
 		6344830E1087C18700EB2CE7 /* Active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Active.png; sourceTree = "<group>"; };
 		634483AF1087DB8100EB2CE7 /* ImageRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageRect.h; sourceTree = "<group>"; };
 		634483B01087DB8100EB2CE7 /* ImageRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageRect.m; sourceTree = "<group>"; };
-		634483E21087E31600EB2CE7 /* FadeFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FadeFrame.png; sourceTree = "<group>"; };
 		63684EE810880E2100A390D5 /* Overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Overlay.png; sourceTree = "<group>"; };
 		637588C6108CE6A700E8C9C5 /* ISCRecording.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCRecording.h; sourceTree = "<group>"; };
 		637588C7108CE6A700E8C9C5 /* ISCRecording.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCRecording.m; sourceTree = "<group>"; };
@@ -120,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				63B4FC4C108BE0400003CA1F /* FakeApps */,
-				634483E21087E31600EB2CE7 /* FadeFrame.png */,
 				6344830E1087C18700EB2CE7 /* Active.png */,
 				6344830C1087C17C00EB2CE7 /* Hover.png */,
 				63775E9B1086B2A600816786 /* RecordButton.png */,
@@ -266,7 +263,6 @@
 				63775EA61086B3BF00816786 /* StopButton.png in Resources */,
 				6344830D1087C17C00EB2CE7 /* Hover.png in Resources */,
 				6344830F1087C18700EB2CE7 /* Active.png in Resources */,
-				634483E31087E31600EB2CE7 /* FadeFrame.png in Resources */,
 				63684EE910880E2100A390D5 /* Overlay.png in Resources */,
 				63B4F6AC108A508E0003CA1F /* Preferences.xib in Resources */,
 				63B4FC5F108BE0400003CA1F /* FakeApps in Resources */,

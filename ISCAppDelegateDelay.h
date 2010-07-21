@@ -19,7 +19,7 @@
 
 @property (nonatomic, readonly) id secondDelegate;
 
-@property BOOL shouldTerminate;
+@property (nonatomic) BOOL shouldTerminate;
 
 + (ISCAppDelegateDelay *)sharedInstance;
 
