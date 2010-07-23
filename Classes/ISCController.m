@@ -34,7 +34,6 @@
 
 #import <QTKit/QTKit.h>
 
-#import "QTMovieExtensions.h"
 #import "ImageRect.h"
 #import "ISCFrame.h"
 #import "ISCRecording.h"

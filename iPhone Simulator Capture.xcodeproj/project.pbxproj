@@ -67,9 +67,9 @@
 		63B4F6A9108A4E930003CA1F /* ISCPreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCPreferenceController.m; sourceTree = "<group>"; };
 		63B4F6AB108A508E0003CA1F /* Preferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		63B4F746108A5A7C0003CA1F /* Notes.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Notes.rtf; sourceTree = "<group>"; };
-		63B4FBE4108BDB5B0003CA1F /* iPhone Simulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iPhone Simulator.h"; sourceTree = "<group>"; };
+		63B4FBE4108BDB5B0003CA1F /* iPhone Simulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "iPhone Simulator.h"; path = "Frameworks/iPhone Simulator.h"; sourceTree = "<group>"; };
 		63B4FC4C108BE0400003CA1F /* FakeApps */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FakeApps; sourceTree = "<group>"; };
-		63B4FCC1108BE6760003CA1F /* SimulatorBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulatorBridge.h; sourceTree = "<group>"; };
+		63B4FCC1108BE6760003CA1F /* SimulatorBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimulatorBridge.h; path = Frameworks/SimulatorBridge.h; sourceTree = "<group>"; };
 		8D5B49B6048680CD000E48DA /* iPhone Simulator Capture.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iPhone Simulator Capture.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
@@ -92,7 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				63B4F746108A5A7C0003CA1F /* Notes.rtf */,
-				08FB77AFFE84173DC02AAC07 /* Classes */,
+				638CCA4D11F9374C00323CE0 /* Classes */,
 				63B4F69D108A4E0F0003CA1F /* Categories */,
 				32C88E010371C26100C91783 /* Other Sources */,
 				089C167CFE841241C02AAC07 /* Resources */,
@@ -117,39 +117,14 @@
 		089C167CFE841241C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				638CCA7A11F938D900323CE0 /* Images */,
 				63B4FC4C108BE0400003CA1F /* FakeApps */,
-				6344830E1087C18700EB2CE7 /* Active.png */,
-				6344830C1087C17C00EB2CE7 /* Hover.png */,
-				63775E9B1086B2A600816786 /* RecordButton.png */,
-				63775EA51086B3BF00816786 /* StopButton.png */,
-				63684EE810880E2100A390D5 /* Overlay.png */,
 				8D5B49B7048680CD000E48DA /* Info.plist */,
 				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
 				6300D12610861EF600ADF370 /* PluginController.xib */,
 				63B4F6AB108A508E0003CA1F /* Preferences.xib */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		08FB77AFFE84173DC02AAC07 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				6300CDFB1085394200ADF370 /* ISCController.h */,
-				6300CDFC1085394200ADF370 /* ISCController.m */,
-				637588C6108CE6A700E8C9C5 /* ISCRecording.h */,
-				637588C7108CE6A700E8C9C5 /* ISCRecording.m */,
-				63B4F17810892B5A0003CA1F /* ISCFrame.h */,
-				63B4F17910892B5A0003CA1F /* ISCFrame.m */,
-				63B4F4D8108980F20003CA1F /* ISCAppDelegateDelay.h */,
-				63B4F4D9108980F20003CA1F /* ISCAppDelegateDelay.m */,
-				63B4F6A8108A4E930003CA1F /* ISCPreferenceController.h */,
-				63B4F6A9108A4E930003CA1F /* ISCPreferenceController.m */,
-				63758C96108D7E4200E8C9C5 /* DABTimeIntervalFormatter.h */,
-				63758C97108D7E4200E8C9C5 /* DABTimeIntervalFormatter.m */,
-				630CE45F11E687E700E6696C /* ISCDeviceType.h */,
-				630CE46011E687E700E6696C /* ISCDeviceType.m */,
-			);
-			name = Classes;
 			sourceTree = "<group>";
 		};
 		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
@@ -196,7 +171,41 @@
 				637FD44511A74C3E00566C47 /* IsEmpty.h */,
 				637FD44611A74C3E00566C47 /* CustomProperties.h */,
 			);
-			path = CommonMacros;
+			name = CommonMacros;
+			path = Frameworks/CommonMacros;
+			sourceTree = "<group>";
+		};
+		638CCA4D11F9374C00323CE0 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6300CDFB1085394200ADF370 /* ISCController.h */,
+				6300CDFC1085394200ADF370 /* ISCController.m */,
+				637588C6108CE6A700E8C9C5 /* ISCRecording.h */,
+				637588C7108CE6A700E8C9C5 /* ISCRecording.m */,
+				63B4F17810892B5A0003CA1F /* ISCFrame.h */,
+				63B4F17910892B5A0003CA1F /* ISCFrame.m */,
+				63B4F4D8108980F20003CA1F /* ISCAppDelegateDelay.h */,
+				63B4F4D9108980F20003CA1F /* ISCAppDelegateDelay.m */,
+				63B4F6A8108A4E930003CA1F /* ISCPreferenceController.h */,
+				63B4F6A9108A4E930003CA1F /* ISCPreferenceController.m */,
+				63758C96108D7E4200E8C9C5 /* DABTimeIntervalFormatter.h */,
+				63758C97108D7E4200E8C9C5 /* DABTimeIntervalFormatter.m */,
+				630CE45F11E687E700E6696C /* ISCDeviceType.h */,
+				630CE46011E687E700E6696C /* ISCDeviceType.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		638CCA7A11F938D900323CE0 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				6344830E1087C18700EB2CE7 /* Active.png */,
+				6344830C1087C17C00EB2CE7 /* Hover.png */,
+				63775E9B1086B2A600816786 /* RecordButton.png */,
+				63775EA51086B3BF00816786 /* StopButton.png */,
+				63684EE810880E2100A390D5 /* Overlay.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		63B4F69D108A4E0F0003CA1F /* Categories */ = {
@@ -207,7 +216,7 @@
 				6378D6BA10B3310500FF021A /* ISCArraySections.h */,
 				6378D6BB10B3310500FF021A /* ISCArraySections.m */,
 			);
-			name = Categories;
+			path = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
