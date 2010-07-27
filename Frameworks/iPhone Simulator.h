@@ -86,7 +86,7 @@ struct _PurpleEventMessage {
 	NSConditionLock *eventForwardingLock;
 	ProcessControl *_simulatedProcess;
 	NSAppleScript *_showProgrammingGuideScript;
-	struct _NSPoint _startingSimulatorViewInset;
+	NSPoint _startingSimulatorViewInset;
 	BOOL _useLegacyEventStructSize;
 	BOOL _simulatingHardwareKeyboard;
 	BOOL _sdkSupportsHostedLayerEvents;
@@ -99,7 +99,7 @@ struct _PurpleEventMessage {
 	NSView<SimulatorViewProtocol> *_mirrorView;
 	struct CGAffineTransform _mirrorTransform;
 	BOOL _mirrorNeedsRotation;
-	struct _NSSize _reccomendedWindowSize;
+	NSSize _reccomendedWindowSize;
 	float _monitorWindowScale;
 	int _monitorWindowType;
 	NSScrollView *_monitorScrollView;
@@ -120,7 +120,7 @@ struct _PurpleEventMessage {
 - (BOOL)mirrorNeedsRotation;
 - (struct CGAffineTransform)mirrorTransform;
 - (id)tvOutWindow;
-- (struct _NSRect)tvOutWindowFrame;
+- (NSRect)tvOutWindowFrame;
 - (void)simulatorViewNeedsDisplayOnMainThread:(id)arg1;
 - (void)prepareForSpringBoardLaunch;
 - (void)setUseLegacyEventStructSize:(BOOL)arg1;
@@ -243,9 +243,9 @@ struct _PurpleEventMessage {
 - (void)setAllowScrollWheelEvents:(BOOL)arg1;
 - (void)setCompensateForStatusBar:(BOOL)arg1;
 - (void)sendEvent:(id)arg1;
-- (BOOL)dragWentOffscreen:(struct _NSPoint *)arg1;
-- (BOOL)touchDownInPortraitStatusBar:(struct _NSPoint)arg1;
-- (struct _NSPoint)translatePointFromWindowToSimulator:(struct _NSPoint)arg1;
+- (BOOL)dragWentOffscreen:(NSPoint *)arg1;
+- (BOOL)touchDownInPortraitStatusBar:(NSPoint)arg1;
+- (NSPoint)translatePointFromWindowToSimulator:(NSPoint)arg1;
 - (void)sendScrollEvents:(id)arg1;
 - (void)copy:(id)arg1;
 - (void)paste:(id)arg1;
@@ -270,31 +270,31 @@ struct _PurpleEventMessage {
 
 @interface SimulatorGlassView : NSView
 {
-	struct _NSPoint _mousePoint;
-	struct _NSPoint _pinchPoint;
-	struct _NSPoint _mirrorPoint;
+	NSPoint _mousePoint;
+	NSPoint _pinchPoint;
+	NSPoint _mirrorPoint;
 	BOOL _fingerDown;
 	BOOL _acceptingDrag;
 }
 
-- (id)initWithFrame:(struct _NSRect)arg1;
+- (id)initWithFrame:(NSRect)arg1;
 - (BOOL)isOpaque;
-- (void)drawRect:(struct _NSRect)arg1;
-- (BOOL)isIgnoredPoint:(struct _NSPoint)arg1;
-- (void)setPinchPoint:(struct _NSPoint)arg1;
+- (void)drawRect:(NSRect)arg1;
+- (BOOL)isIgnoredPoint:(NSPoint)arg1;
+- (void)setPinchPoint:(NSPoint)arg1;
 - (void)resetPinchPoint;
-- (struct _NSPoint)pinchPoint;
-- (void)setMousePoint:(struct _NSPoint)arg1;
+- (NSPoint)pinchPoint;
+- (void)setMousePoint:(NSPoint)arg1;
 - (void)resetMousePoint;
-- (struct _NSPoint)mousePoint;
-- (void)setMirrorPoint:(struct _NSPoint)arg1;
+- (NSPoint)mousePoint;
+- (void)setMirrorPoint:(NSPoint)arg1;
 - (void)resetMirrorPoint;
-- (struct _NSPoint)mirrorPoint;
+- (NSPoint)mirrorPoint;
 - (void)setFingerDown:(BOOL)arg1;
 - (BOOL)fingerDown;
 - (void)setAcceptingDrag:(BOOL)arg1;
-- (void)drawCenterAtPoint:(struct _NSPoint)arg1;
-- (void)drawFingerAtPoint:(struct _NSPoint)arg1;
+- (void)drawCenterAtPoint:(NSPoint)arg1;
+- (void)drawFingerAtPoint:(NSPoint)arg1;
 
 @end
 
@@ -316,7 +316,7 @@ struct _PurpleEventMessage {
 }
 
 - (void)dealloc;
-- (void)drawRect:(struct _NSRect)arg1;
+- (void)drawRect:(NSRect)arg1;
 - (BOOL)mouseDownCanMoveWindow;
 - (void)setMonitorViewController:(id)arg1;
 
@@ -327,10 +327,10 @@ struct _PurpleEventMessage {
 	MonitorViewController *_monitorViewController;
 }
 
-- (id)initWithFrame:(struct _NSRect)arg1;
+- (id)initWithFrame:(NSRect)arg1;
 - (void)dealloc;
 - (void)prepareOpenGL;
-- (void)drawRect:(struct _NSRect)arg1;
+- (void)drawRect:(NSRect)arg1;
 - (BOOL)mouseDownCanMoveWindow;
 - (void)setMonitorViewController:(id)arg1;
 
@@ -445,11 +445,11 @@ struct _PurpleEventMessage {
 - (void)setCurrentDevice:(id)arg1;
 - (id)currentDeviceInfo;
 - (id)capabilitiesPlistForCurrentDevice;
-- (struct _NSSize)sizeForCurrentDevice;
+- (NSSize)sizeForCurrentDevice;
 - (float)scaleForCurrentDevice;
 - (id)chromeImageForCurrentDevice;
 - (id)homeImageForCurrentDevice;
-- (struct _NSPoint)homeOriginForCurrentDevice;
+- (NSPoint)homeOriginForCurrentDevice;
 - (id)allVersions;
 - (id)allSDKRoots;
 - (id)shortVersionString;
@@ -503,11 +503,11 @@ struct _PurpleEventMessage {
 }
 
 + (id)frameImage;
-+ (struct _NSSize)frameSize;
-- (id)initWithFrame:(struct _NSRect)arg1;
++ (NSSize)frameSize;
+- (id)initWithFrame:(NSRect)arg1;
 - (BOOL)isOpaque;
 - (BOOL)mouseDownCanMoveWindow;
-- (void)drawRect:(struct _NSRect)arg1;
+- (void)drawRect:(NSRect)arg1;
 - (void)setShadowNeedsDisplay:(BOOL)arg1;
 
 @end
@@ -518,14 +518,14 @@ struct _PurpleEventMessage {
 }
 
 + (id)pressedHomeImage;
-- (id)initWithFrame:(struct _NSRect)arg1;
+- (id)initWithFrame:(NSRect)arg1;
 - (BOOL)isOpaque;
 - (BOOL)acceptsFirstMouse:(id)arg1;
 - (BOOL)mouseDownCanMoveWindow;
 - (void)mouseDown:(id)arg1;
 - (void)mouseUp:(id)arg1;
 - (void)mouseDragged:(id)arg1;
-- (void)drawRect:(struct _NSRect)arg1;
+- (void)drawRect:(NSRect)arg1;
 
 @end
 
@@ -540,14 +540,14 @@ struct _PurpleEventMessage {
 
 @interface PurpleHardware : NSObject
 {
-	struct _NSSize _screenPixels;
+	NSSize _screenPixels;
 	float _screenScaleFactor;
 }
 
 + (id)sharedInstance;
-- (void)setScreenPixels:(struct _NSSize)arg1;
-- (struct _NSSize)screenPixels;
-- (struct _NSSize)screenPoints;
+- (void)setScreenPixels:(NSSize)arg1;
+- (NSSize)screenPixels;
+- (NSSize)screenPoints;
 - (void)setScreenScaleFactor:(float)arg1;
 - (float)screenScaleFactor;
 
@@ -559,8 +559,8 @@ struct _PurpleEventMessage {
 	NSString *bundlePath;
 	NSString *minimumVersionString;
 	NSString *capabilitiesPlist;
-	struct _NSSize size;
-	struct _NSSize forceSize;
+	NSSize size;
+	NSSize forceSize;
 	float scale;
 	BOOL canTether;
 	BOOL invertX;
@@ -571,7 +571,7 @@ struct _PurpleEventMessage {
 	NSString *homeImageName;
 	NSImage *homeImage;
 	float homeOriginY;
-	struct _NSPoint homeOrigin;
+	NSPoint homeOrigin;
 	int productType;
 	NSString *productClass;
 }
@@ -581,7 +581,7 @@ struct _PurpleEventMessage {
 - (id)init;
 - (void)dealloc;
 - (BOOL)isForcingSize;
-- (struct _NSPoint)forceOrigin;
+- (NSPoint)forceOrigin;
 - (id)chromeImage;
 - (id)homeImage;
 - (id)imageWithName:(id)arg1;
@@ -589,8 +589,8 @@ struct _PurpleEventMessage {
 - (void)setProductClass:(id)arg1;
 - (int)productType;
 - (void)setProductType:(int)arg1;
-- (struct _NSPoint)homeOrigin;
-- (void)setHomeOrigin:(struct _NSPoint)arg1;
+- (NSPoint)homeOrigin;
+- (void)setHomeOrigin:(NSPoint)arg1;
 - (id)homeImageName;
 - (void)setHomeImageName:(id)arg1;
 - (id)chromeImageName;
@@ -605,10 +605,10 @@ struct _PurpleEventMessage {
 - (void)setCanTether:(BOOL)arg1;
 - (float)scale;
 - (void)setScale:(float)arg1;
-- (struct _NSSize)forceSize;
-- (void)setForceSize:(struct _NSSize)arg1;
-- (struct _NSSize)size;
-- (void)setSize:(struct _NSSize)arg1;
+- (NSSize)forceSize;
+- (void)setForceSize:(NSSize)arg1;
+- (NSSize)size;
+- (void)setSize:(NSSize)arg1;
 - (id)capabilitiesPlist;
 - (void)setCapabilitiesPlist:(id)arg1;
 - (id)minimumVersionString;
@@ -651,9 +651,9 @@ struct _PurpleEventMessage {
 - (void)cleanupWindows:(BOOL)arg1;
 - (void)setupWindows:(BOOL)arg1;
 - (void)setupMonitorWindow;
-- (struct _NSSize)simulatorViewSize;
-- (struct _NSRect)scrollDocumentFrame;
-- (struct _NSSize)simulatorViewFrameDifference;
+- (NSSize)simulatorViewSize;
+- (NSRect)scrollDocumentFrame;
+- (NSSize)simulatorViewFrameDifference;
 - (void)updateScaledSimulatorFrame;
 - (void)updateMonitorWindowLevel;
 - (void)moveWindowOnScreen;
@@ -680,7 +680,7 @@ struct _PurpleEventMessage {
 - (id)superAccessibilityAttributeValue:(id)arg1;
 - (id)superAccessibilityAttributeNames;
 - (BOOL)accessibilityIsIgnored;
-- (id)accessibilityHitTest:(struct _NSPoint)arg1;
+- (id)accessibilityHitTest:(NSPoint)arg1;
 - (id)accessibilityAttributeNames;
 - (id)accessibilityAttributeValue:(id)arg1;
 @end
@@ -689,14 +689,14 @@ struct _PurpleEventMessage {
 - (id)superAccessibilityAttributeValue:(id)arg1;
 - (id)superAccessibilityAttributeNames;
 - (BOOL)accessibilityIsIgnored;
-- (id)accessibilityHitTest:(struct _NSPoint)arg1;
+- (id)accessibilityHitTest:(NSPoint)arg1;
 - (id)accessibilityAttributeNames;
 - (id)accessibilityAttributeValue:(id)arg1;
 @end
 
 @interface MonitorWindow (Accessibility)
 - (id)accessibilityAttributeValue:(id)arg1;
-- (id)accessibilityHitTest:(struct _NSPoint)arg1;
+- (id)accessibilityHitTest:(NSPoint)arg1;
 @end
 
 @interface SimulatorHomeView (Accessibility)
@@ -715,7 +715,7 @@ struct _PurpleEventMessage {
 - (void)_bridgeTerminated;
 - (void)_initializeAccessibility;
 - (BOOL)accessibilityIsIgnored;
-- (id)accessibilityHitTest:(struct _NSPoint)arg1;
+- (id)accessibilityHitTest:(NSPoint)arg1;
 - (id)accessibilityAttributeNames;
 - (id)accessibilityAttributeValue:(id)arg1;
 @end
