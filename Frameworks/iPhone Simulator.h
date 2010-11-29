@@ -120,7 +120,7 @@ struct _PurpleEventMessage {
 - (BOOL)mirrorNeedsRotation;
 - (struct CGAffineTransform)mirrorTransform;
 - (id)tvOutWindow;
-- (NSRect)tvOutWindowFrame;
+- (struct _NSRect)tvOutWindowFrame;
 - (void)simulatorViewNeedsDisplayOnMainThread:(id)arg1;
 - (void)prepareForSpringBoardLaunch;
 - (void)setUseLegacyEventStructSize:(BOOL)arg1;
@@ -277,9 +277,9 @@ struct _PurpleEventMessage {
 	BOOL _acceptingDrag;
 }
 
-- (id)initWithFrame:(NSRect)arg1;
+- (id)initWithFrame:(struct _NSRect)arg1;
 - (BOOL)isOpaque;
-- (void)drawRect:(NSRect)arg1;
+- (void)drawRect:(struct _NSRect)arg1;
 - (BOOL)isIgnoredPoint:(NSPoint)arg1;
 - (void)setPinchPoint:(NSPoint)arg1;
 - (void)resetPinchPoint;
@@ -316,7 +316,7 @@ struct _PurpleEventMessage {
 }
 
 - (void)dealloc;
-- (void)drawRect:(NSRect)arg1;
+- (void)drawRect:(struct _NSRect)arg1;
 - (BOOL)mouseDownCanMoveWindow;
 - (void)setMonitorViewController:(id)arg1;
 
@@ -327,10 +327,10 @@ struct _PurpleEventMessage {
 	MonitorViewController *_monitorViewController;
 }
 
-- (id)initWithFrame:(NSRect)arg1;
+- (id)initWithFrame:(struct _NSRect)arg1;
 - (void)dealloc;
 - (void)prepareOpenGL;
-- (void)drawRect:(NSRect)arg1;
+- (void)drawRect:(struct _NSRect)arg1;
 - (BOOL)mouseDownCanMoveWindow;
 - (void)setMonitorViewController:(id)arg1;
 
@@ -504,10 +504,10 @@ struct _PurpleEventMessage {
 
 + (id)frameImage;
 + (NSSize)frameSize;
-- (id)initWithFrame:(NSRect)arg1;
+- (id)initWithFrame:(struct _NSRect)arg1;
 - (BOOL)isOpaque;
 - (BOOL)mouseDownCanMoveWindow;
-- (void)drawRect:(NSRect)arg1;
+- (void)drawRect:(struct _NSRect)arg1;
 - (void)setShadowNeedsDisplay:(BOOL)arg1;
 
 @end
@@ -518,14 +518,14 @@ struct _PurpleEventMessage {
 }
 
 + (id)pressedHomeImage;
-- (id)initWithFrame:(NSRect)arg1;
+- (id)initWithFrame:(struct _NSRect)arg1;
 - (BOOL)isOpaque;
 - (BOOL)acceptsFirstMouse:(id)arg1;
 - (BOOL)mouseDownCanMoveWindow;
 - (void)mouseDown:(id)arg1;
 - (void)mouseUp:(id)arg1;
 - (void)mouseDragged:(id)arg1;
-- (void)drawRect:(NSRect)arg1;
+- (void)drawRect:(struct _NSRect)arg1;
 
 @end
 
@@ -652,7 +652,7 @@ struct _PurpleEventMessage {
 - (void)setupWindows:(BOOL)arg1;
 - (void)setupMonitorWindow;
 - (NSSize)simulatorViewSize;
-- (NSRect)scrollDocumentFrame;
+- (struct _NSRect)scrollDocumentFrame;
 - (NSSize)simulatorViewFrameDifference;
 - (void)updateScaledSimulatorFrame;
 - (void)updateMonitorWindowLevel;

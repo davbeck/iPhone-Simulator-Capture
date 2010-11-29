@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme>
+   <BuildAction
+      buildConfiguration = "Debug">
+      <BuildableProductReferences>
+         <BuildableProductReference
+            BuildableProductIdentifier = "iPhone Simulator Capture.bundle">
+         </BuildableProductReference>
+      </BuildableProductReferences>
+   </BuildAction>
+   <TestAction>
+   </TestAction>
+   <LaunchAction
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB">
+      <PathRunnable
+         FilePath = "/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone Simulator.app">
+      </PathRunnable>
+      <AdditionalOptions>
+      </AdditionalOptions>
+   </LaunchAction>
+</Scheme>
