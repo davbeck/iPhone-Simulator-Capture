@@ -62,7 +62,8 @@ NSString *ISCBackgroundColorKey = @"ISCBackgroundColor";
 #pragma mark Initialization
 - (id)initWithDelegate:(id)iDelegate
 {
-	if (self = [super init]) {
+	self = [super init];
+	if (self != nil) {
 		delegate = iDelegate;
 	}
 	return self;
@@ -155,6 +156,7 @@ NSString *ISCBackgroundColorKey = @"ISCBackgroundColor";
 	NSPoint locationInView = [simulatorView convertPoint:[simulatorWindow mouseLocationOutsideOfEventStream] fromView:nil];
 	
 	NSImage *screenshot = [[NSImage alloc] initWithData:[[monitorViewController bitmapImageRep] TIFFRepresentation]];
+	NSLog(@"screenshot: %@", screenshot);
 	
 	ISCFrame *frame = [[ISCFrame alloc] initWithScreenshot:screenshot
 									   isMouseDown:[NSEvent pressedMouseButtons] ==  kLeftMouseDown 

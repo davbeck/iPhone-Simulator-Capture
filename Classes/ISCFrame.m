@@ -31,8 +31,8 @@
 #import "ImageRect.h"
 
 const NSPoint ISCScreenLocationWithOverlay = {.x = (CGFloat)28.0, .y = (CGFloat)218.0};
-const NSPoint ISCOverlayLoacaionWithPointer = {.x = (CGFloat)122.0, .y = (CGFloat)76.0};
-const NSPoint ISCScreenLocationWithPointer = {.x = (CGFloat)158.0, .y = (CGFloat)309.0};
+const NSPoint ISCOverlayLoacaionWithPointer = {.x = (CGFloat)187.0, .y = (CGFloat)76.0};
+const NSPoint ISCScreenLocationWithPointer = {.x = (CGFloat)215.0, .y = (CGFloat)309.0};
 const NSSize ISCFrameWithPointerSize = {.width = (CGFloat)750.0, .height = (CGFloat)1000.0};
 
 
@@ -97,7 +97,8 @@ const NSSize ISCFrameWithPointerSize = {.width = (CGFloat)750.0, .height = (CGFl
 				location:(NSPoint)iLocation
 			 orientation:(enum ISCFrameOrientation)orientation
 {
-	if (self = [super init]) {
+	self = [super init];
+	if (self != nil) {
 		screenshot = iScreenshot;
 		[screenshot retain];
 		[screenshot setCacheMode:NSImageCacheNever];
@@ -153,13 +154,11 @@ const NSSize ISCFrameWithPointerSize = {.width = (CGFloat)750.0, .height = (CGFl
 	
 	if (withOverlay) {
 		//draw the iPhone frame on top (glare needs to be on top)
-		[[ISCFrame overlay] drawAtPoint:frameLocation
-						   fraction:1.0];
+		[[ISCFrame overlay] drawAtPoint:frameLocation fraction:1.0];
 	}
 	
 	//draw the actual screen shot in the center of the screen
-	[screenshot drawAtPoint:screenPoint
-				fraction:1.0];
+	[screenshot drawAtPoint:screenPoint fraction:1.0];
 	
 	if (withPointer) {
 		NSPoint centerLocation = location;
@@ -167,10 +166,8 @@ const NSSize ISCFrameWithPointerSize = {.width = (CGFloat)750.0, .height = (CGFl
 		centerLocation.x += screenPoint.x - [mouseImage size].width / 2.0;
 		centerLocation.y += screenPoint.y - [mouseImage size].height / 2.0;
 		
-		
 		//draw the pointer ofset to center
-		[mouseImage drawAtPoint:centerLocation
-					   fraction:0.8];
+		[mouseImage drawAtPoint:centerLocation fraction:0.8];
 	}
 	
 	[frameImage unlockFocus];
