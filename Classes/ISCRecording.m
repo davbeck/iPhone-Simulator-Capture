@@ -159,9 +159,9 @@ NSString *ISCBackgroundColorKey = @"ISCBackgroundColor";
 	NSLog(@"screenshot: %@", screenshot);
 	
 	ISCFrame *frame = [[ISCFrame alloc] initWithScreenshot:screenshot
-									   isMouseDown:[NSEvent pressedMouseButtons] ==  kLeftMouseDown 
-										 location:locationInView 
-									   orientation:[[NSApp delegate] orientation]];
+											   isMouseDown:[NSEvent pressedMouseButtons] ==  kLeftMouseDown 
+												  location:locationInView 
+											   orientation:[[NSApp delegate] orientation]];
 	
 	//add all the values of this frame to a dictionary and add that to the array
 	[frames addObject:frame];
@@ -202,10 +202,11 @@ NSString *ISCBackgroundColorKey = @"ISCBackgroundColor";
 	
 	NSData *colorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"ISCBackgroundColor"];
 	NSColor *backgroundColor = nil;
-  if ([colorData length] > 0)
-    backgroundColor = (NSColor *)[NSUnarchiver unarchiveObjectWithData:colorData];
-  else 
-    backgroundColor = [NSColor blackColor];
+	if ([colorData length] > 0) {
+		backgroundColor = (NSColor *)[NSUnarchiver unarchiveObjectWithData:colorData];
+	} else {
+		backgroundColor = [NSColor blackColor];
+	}
 	
 #ifdef DEBUG_MODE
 	NSDate *startRender = [NSDate date];
@@ -264,7 +265,7 @@ NSString *ISCBackgroundColorKey = @"ISCBackgroundColor";
 		//jpeg is much faster
 		attrs = [[NSDictionary alloc] initWithObjectsAndKeys:@"jpeg", QTAddImageCodecType, nil];
 	}
-
+	
 	
 	[movie addImage:image forDuration:time withAttributes:attrs];
 	[attrs release];
