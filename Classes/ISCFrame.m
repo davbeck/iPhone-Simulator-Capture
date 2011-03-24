@@ -32,7 +32,7 @@
 
 const NSPoint ISCScreenLocationWithOverlay = {.x = (CGFloat)28.0, .y = (CGFloat)218.0};
 const NSPoint ISCOverlayLoacaionWithPointer = {.x = (CGFloat)187.0, .y = (CGFloat)76.0};
-const NSPoint ISCScreenLocationWithPointer = {.x = (CGFloat)215.0, .y = (CGFloat)309.0};
+const NSPoint ISCScreenLocationWithPointer = {.x = (CGFloat)215.0, .y = (CGFloat)294.0};
 const NSSize ISCFrameWithPointerSize = {.width = (CGFloat)750.0, .height = (CGFloat)1000.0};
 
 
@@ -60,6 +60,7 @@ const NSSize ISCFrameWithPointerSize = {.width = (CGFloat)750.0, .height = (CGFl
 	}
 	return hoverImage;
 }
+
 + (NSImage *)activeImage
 {
 	static NSImage *activeImage = nil;
@@ -71,6 +72,7 @@ const NSSize ISCFrameWithPointerSize = {.width = (CGFloat)750.0, .height = (CGFl
 	}
 	return activeImage;
 }
+
 + (NSImage *)overlay
 {
 	static NSImage *overlay = nil;
@@ -82,6 +84,7 @@ const NSSize ISCFrameWithPointerSize = {.width = (CGFloat)750.0, .height = (CGFl
 	}
 	return overlay;
 }
+
 + (NSImage *)pointerImageForState:(BOOL)state
 {
 	if (state) {
@@ -126,7 +129,7 @@ const NSSize ISCFrameWithPointerSize = {.width = (CGFloat)750.0, .height = (CGFl
 	NSImage *mouseImage;
 	
 	//check largest to smalles size
-	if (withPointer) {
+	if (withPointer && withOverlay) {
 		//even if withFrame was yes we would use this because it is the bigger of the two
 		frameSize = ISCFrameWithPointerSize;
 		
@@ -135,6 +138,9 @@ const NSSize ISCFrameWithPointerSize = {.width = (CGFloat)750.0, .height = (CGFl
 		frameLocation = ISCOverlayLoacaionWithPointer;
 		
 		//get the hover or active image
+		mouseImage = [ISCFrame pointerImageForState:isMouseDown];
+	} else if (withPointer) {
+		//screenPoint = ISCScreenLocationWithPointer;
 		mouseImage = [ISCFrame pointerImageForState:isMouseDown];
 	} else if (withOverlay) {
 		frameSize = [[ISCFrame overlay] size];
@@ -165,6 +171,8 @@ const NSSize ISCFrameWithPointerSize = {.width = (CGFloat)750.0, .height = (CGFl
 		
 		centerLocation.x += screenPoint.x - [mouseImage size].width / 2.0;
 		centerLocation.y += screenPoint.y - [mouseImage size].height / 2.0;
+		
+		NSLog(@"pointer: %@", NSStringFromPoint(centerLocation));
 		
 		//draw the pointer ofset to center
 		[mouseImage drawAtPoint:centerLocation fraction:0.8];

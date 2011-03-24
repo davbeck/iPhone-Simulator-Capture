@@ -55,13 +55,22 @@ extern NSString *ISCBackgroundColorKey;
 	NSDate *startTime;
 	NSTimeInterval length;
 	
-	QTMovie *movie;
+	QTMovie *_movie;
+	
+	NSOperationQueue *_renderQueue;
+	
+	NSColor *_backgroundColor;
+	BOOL _withPointer;
+	BOOL _withFrame;
+	
+	double _lastProgress;
 }
 @property (assign) id delegate;
 
 @property (readonly) NSTimeInterval length;
 @property BOOL isRecording;
-@property (readonly) QTMovie *movie;
+@property (readonly) QTMovie *_movie;
+@property (nonatomic, readonly) NSColor *backgroundColor;
 
 - (id)initWithDelegate:(id)iDelegate;
 

@@ -107,7 +107,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(ISCController)
 
 - (void)ISCRecordingDidFinishRendering:(ISCRecording *)rec
 {
-	[self writeMovie:[rec movie] toURL:saveURL];
+	[self writeMovie:[rec moviee] toURL:saveURL];
 	[saveURL release];
 	saveURL = nil;
 	
@@ -146,7 +146,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(ISCController)
 	
 	//nil means they canceled save
 	if(filename != nil) {
-		if ([recording movie] == nil) {
+		if ([recording moviee] == nil) {
 			[self showProgressBar:YES];
 			
 			[recording generateMovie];
@@ -154,7 +154,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(ISCController)
 			saveURL = filename;
 			[saveURL retain];
 		} else {
-			[self writeMovie:[recording movie] toURL:filename];
+			[self writeMovie:[recording moviee] toURL:filename];
 		}
 	}
 }

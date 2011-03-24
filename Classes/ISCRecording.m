@@ -44,13 +44,14 @@ NSString *ISCBackgroundColorKey = @"ISCBackgroundColor";
 
 @synthesize delegate;
 @synthesize length;
-@synthesize movie;
+@synthesize _movie;
 
 - (void)dealloc
 {
-	[movie release];
+	[_movie release];
 	[frames release];
 	[startTime release];
+	[_backgroundColor release];
 	
 	[captureTimer invalidate];
 	
@@ -65,6 +66,9 @@ NSString *ISCBackgroundColorKey = @"ISCBackgroundColor";
 	self = [super init];
 	if (self != nil) {
 		delegate = iDelegate;
+		
+		_renderQueue = [[NSOperationQueue alloc] init];
+		_renderQueue.maxConcurrentOperationCount = 1;
 	}
 	return self;
 }
@@ -97,13 +101,25 @@ NSString *ISCBackgroundColorKey = @"ISCBackgroundColor";
 }
 
 //movie
-- (QTMovie *)movie
+- (QTMovie *)moviee
 {
 	//only return the movie if it is finished rendering
 	if ([frames count] > 0) {
 		return nil;
 	}
-	return movie;
+	return _movie;
+}
+
+- (NSColor *)backgroundColor
+{
+	NSData *colorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"ISCBackgroundColor"];
+	NSColor *backgroundColor = nil;
+	if ([colorData length] > 0) {
+		backgroundColor = (NSColor *)[NSUnarchiver unarchiveObjectWithData:colorData];
+	} else {
+		backgroundColor = [NSColor blackColor];
+	}
+	return backgroundColor;
 }
 
 
@@ -115,12 +131,16 @@ NSString *ISCBackgroundColorKey = @"ISCBackgroundColor";
 	
 	frames = [[NSMutableArray alloc] init];
 	
+	_withPointer = [[[NSUserDefaults standardUserDefaults] objectForKey:ISCRecordPointerKey] boolValue];
+	_withFrame = [[[NSUserDefaults standardUserDefaults] objectForKey:ISCShowFrameKey] boolValue];
+	_backgroundColor = [[self backgroundColor] retain];
+	
+	_movie = [[QTMovie alloc] initToWritableData:[NSMutableData data] error:nil];
+	[_movie setAttribute:[NSNumber numberWithLong:20] forKey:QTMovieTimeScaleAttribute];
+	[_movie detachFromCurrentThread];
+	
 	//capture the view/cursor every frame
-	captureTimer = [NSTimer timerWithTimeInterval:kFrameRate 
-										   target:self 
-										 selector:@selector(recordFrame) 
-										 userInfo:nil 
-										  repeats:YES];
+	captureTimer = [NSTimer timerWithTimeInterval:kFrameRate target:self selector:@selector(recordFrame) userInfo:nil repeats:YES];
 	// This should allow the time to continue to update, even when I've chosen a menu item:
 	[[NSRunLoop currentRunLoop] addTimer:captureTimer forMode:NSRunLoopCommonModes];
 }
@@ -135,6 +155,10 @@ NSString *ISCBackgroundColorKey = @"ISCBackgroundColor";
 	//free starting time
 	[startTime release];
 	startTime = nil;
+	
+	[_renderQueue addOperationWithBlock:^{
+		NSLog(@"movie: %@", _movie);
+	}];
 }
 
 
@@ -156,7 +180,6 @@ NSString *ISCBackgroundColorKey = @"ISCBackgroundColor";
 	NSPoint locationInView = [simulatorView convertPoint:[simulatorWindow mouseLocationOutsideOfEventStream] fromView:nil];
 	
 	NSImage *screenshot = [[NSImage alloc] initWithData:[[monitorViewController bitmapImageRep] TIFFRepresentation]];
-	NSLog(@"screenshot: %@", screenshot);
 	
 	ISCFrame *frame = [[ISCFrame alloc] initWithScreenshot:screenshot
 											   isMouseDown:[NSEvent pressedMouseButtons] ==  kLeftMouseDown 
@@ -164,7 +187,19 @@ NSString *ISCBackgroundColorKey = @"ISCBackgroundColor";
 											   orientation:[[NSApp delegate] orientation]];
 	
 	//add all the values of this frame to a dictionary and add that to the array
-	[frames addObject:frame];
+	//[frames addObject:frame];
+	[_renderQueue addOperationWithBlock:^{
+		[_movie attachToCurrentThread];
+		
+		NSImage *frameImage = [frame renderedImageWithPointer:_withPointer overlay:_withFrame background:_backgroundColor];
+		[self addFrameToMovie:frameImage withColor:[self backgroundColor]];
+		
+		[self performSelectorOnMainThread:@selector(updateRenderingProgress)
+							   withObject:nil 
+							waitUntilDone:NO];
+		
+		[_movie detachFromCurrentThread];
+	}];
 	
 	[frame release];
 	[screenshot release];
@@ -179,10 +214,10 @@ NSString *ISCBackgroundColorKey = @"ISCBackgroundColor";
 
 - (void)generateMovie
 {
-	if (movie == nil) {
+	if (_movie == nil) {
 		//initialize the movie in the main thread
-		movie = [[QTMovie alloc] initToWritableData:[NSMutableData data] error:nil];
-		[movie detachFromCurrentThread];
+		_movie = [[QTMovie alloc] initToWritableData:[NSMutableData data] error:nil];
+		[_movie detachFromCurrentThread];
 	}
 	
 	//process on background thread because it takes forever to render
@@ -217,7 +252,7 @@ NSString *ISCBackgroundColorKey = @"ISCBackgroundColor";
 	NSImage *frameImage;
 	ISCFrame *frame;
 	
-	[movie attachToCurrentThread];
+	[_movie attachToCurrentThread];
 	
 	while ([frames count] > 0) {
 		//this is memory intensive so create another pool we can drain every cycle
@@ -239,7 +274,7 @@ NSString *ISCBackgroundColorKey = @"ISCBackgroundColor";
 		[sPool drain];
 	}
 	
-	[movie detachFromCurrentThread];
+	[_movie detachFromCurrentThread];
 	
 #ifdef DEBUG_MODE
 	NSLog(@"render/record: %f", [[NSDate date] timeIntervalSinceDate:startRender] / [self length]);
@@ -260,14 +295,19 @@ NSString *ISCBackgroundColorKey = @"ISCBackgroundColor";
 	NSDictionary *attrs;
 	if ([color alphaComponent] < 1.0) {
 		//by using png, the video will have transparency
-		attrs = [[NSDictionary alloc] initWithObjectsAndKeys:@"png ", QTAddImageCodecType, nil];
+		attrs = [[NSDictionary alloc] initWithObjectsAndKeys:
+				 @"png ", QTAddImageCodecType,
+				 [NSNumber numberWithLong:codecHighQuality], QTAddImageCodecQuality,
+				 nil];
 	} else {
-		//jpeg is much faster
-		attrs = [[NSDictionary alloc] initWithObjectsAndKeys:@"jpeg", QTAddImageCodecType, nil];
+		//mp4v is much faster
+		attrs = [[NSDictionary alloc] initWithObjectsAndKeys:
+				 @"mp4v", QTAddImageCodecType,
+				 [NSNumber numberWithLong:codecHighQuality], QTAddImageCodecQuality,
+				 nil];
 	}
 	
-	
-	[movie addImage:image forDuration:time withAttributes:attrs];
+	[_movie addImage:image forDuration:time withAttributes:attrs];
 	[attrs release];
 }
 
@@ -276,9 +316,16 @@ NSString *ISCBackgroundColorKey = @"ISCBackgroundColor";
 //we have to use NSNumber to use performSelectorInMainThread:
 - (void)renderingProgress:(NSNumber *)progress
 {
-	if ([delegate respondsToSelector:@selector(ISCRecording:renderingProgress:)]) {
-		[delegate ISCRecording:self renderingProgress:[progress doubleValue]];
+	if ([progress doubleValue] - _lastProgress > 0.01) {
+		if ([delegate respondsToSelector:@selector(ISCRecording:renderingProgress:)]) {
+			[delegate ISCRecording:self renderingProgress:[progress doubleValue]];
+		}
 	}
+}
+
+- (void)updateRenderingProgress
+{
+	NSLog(@"movieLength: %lld %ld", [_movie duration].timeValue, [_movie duration].timeScale);
 }
 
 - (void)didFinsihRendering
