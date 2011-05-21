@@ -46,14 +46,12 @@ extern NSString *ISCBackgroundColorKey;
 @interface ISCRecording : NSObject {
 	id delegate;
 	
-	//an array of ISCFrame objects that are added to while recording
-	NSMutableArray *frames;
 	//the timer that fires every kFrameRate to record the frame
 	NSTimer *captureTimer;
 	
 	//the time when we start recording. used to calculate time since
 	NSDate *startTime;
-	NSTimeInterval length;
+	NSTimeInterval _length;
 	
 	QTMovie *_movie;
 	
@@ -69,7 +67,7 @@ extern NSString *ISCBackgroundColorKey;
 
 @property (readonly) NSTimeInterval length;
 @property BOOL isRecording;
-@property (readonly) QTMovie *_movie;
+@property (readonly) QTMovie *movie;
 @property (nonatomic, readonly) NSColor *backgroundColor;
 
 - (id)initWithDelegate:(id)iDelegate;
@@ -79,8 +77,6 @@ extern NSString *ISCBackgroundColorKey;
 
 - (void)recordFrame;
 
-- (void)generateMovie;
-- (void)render;
 - (void)addFrameToMovie:(NSImage *)image withColor:(NSColor *)color;
 
 @end

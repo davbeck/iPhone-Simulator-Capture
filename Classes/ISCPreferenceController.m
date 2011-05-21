@@ -47,7 +47,8 @@ NSSize ISCPreferencesSizeWithRestart = {.width=(CGFloat)470.0, .height=(CGFloat)
 
 - (id)init
 {
-	if (self= [super initWithWindowNibName:kISCPreferencesNibName]) {
+	self = [super initWithWindowNibName:kISCPreferencesNibName];
+	if (self != nil) {
 		[[NSColorPanel sharedColorPanel] setShowsAlpha:YES];
 	}
 	return self;

@@ -172,7 +172,7 @@ const NSSize ISCFrameWithPointerSize = {.width = (CGFloat)750.0, .height = (CGFl
 		centerLocation.x += screenPoint.x - [mouseImage size].width / 2.0;
 		centerLocation.y += screenPoint.y - [mouseImage size].height / 2.0;
 		
-		NSLog(@"pointer: %@", NSStringFromPoint(centerLocation));
+		//NSLog(@"pointer: %@", NSStringFromPoint(centerLocation));
 		
 		//draw the pointer ofset to center
 		[mouseImage drawAtPoint:centerLocation fraction:0.8];

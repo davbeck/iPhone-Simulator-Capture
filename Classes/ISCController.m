@@ -57,17 +57,22 @@
 
 #pragma mark -
 #pragma mark Initialization
+
++ (void)initialize
+{
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	
+	NSDictionary *appDefaults = [NSDictionary dictionaryWithObjectsAndKeys:
+								 [NSNumber numberWithBool:NO], @"ISCRecordWindowVisible",
+								 nil];
+	
+	[defaults registerDefaults:appDefaults];
+}
+
 - (id)init
 {
-	if (self = [super init]) {
-		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-		
-		NSDictionary *appDefaults = [NSDictionary dictionaryWithObjectsAndKeys:
-									 @"NO", @"ISCRecordWindowVisible",
-									 nil];
-		
-		[defaults registerDefaults:appDefaults];
-		
+	self = [super init];
+	if (self != nil) {
 		//load in our menu and window
 		[NSBundle loadNibNamed:@"PluginController" owner:self];
 		
@@ -78,9 +83,9 @@
 		[lengthLabel setDoubleValue:[recording length]];
 		
 		
-		ProcessControl *processControl = [[NSApp delegate] valueForKey:@"_simulatedProcess"];
+		//ProcessControl *processControl = [[NSApp delegate] valueForKey:@"_simulatedProcess"];
 		
-		NSLog(@"process: %@", [processControl applicationSupportDirectory]);
+		//NSLog(@"process: %@", [processControl applicationSupportDirectory]);
 		
 		//NSLog(@"homeDirectory: %@", [[ProcessControl sharedInstance] simulatedHomeDirectory]);
 	}
@@ -107,9 +112,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(ISCController)
 
 - (void)ISCRecordingDidFinishRendering:(ISCRecording *)rec
 {
-	[self writeMovie:[rec moviee] toURL:saveURL];
-	[saveURL release];
-	saveURL = nil;
+	[self writeMovie:[rec movie] toURL:_saveURL];
+	[_saveURL release];
+	_saveURL = nil;
 	
 	[self showProgressBar:NO];
 }
@@ -146,15 +151,13 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(ISCController)
 	
 	//nil means they canceled save
 	if(filename != nil) {
-		if ([recording moviee] == nil) {
+		if ([recording movie] == nil) {
+			NSLog(@"movie nil");
 			[self showProgressBar:YES];
 			
-			[recording generateMovie];
-			
-			saveURL = filename;
-			[saveURL retain];
+			_saveURL = [filename retain];
 		} else {
-			[self writeMovie:[recording moviee] toURL:filename];
+			[self writeMovie:[recording movie] toURL:filename];
 		}
 	}
 }
@@ -212,10 +215,15 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(ISCController)
 	[[recordButton animator] setHidden:show];
 	[[lengthLabel animator] setHidden:show];
 	
-	[[[indicator window] animator] setFrame:frame 
-						 display:YES];
+	[[[indicator window] animator] setFrame:frame display:YES];
 	
 	[NSAnimationContext endGrouping];
+	
+	if (show) {
+		[indicator startAnimation:nil];
+	} else {
+		[indicator stopAnimation:nil];
+	}
 }
 
 @end

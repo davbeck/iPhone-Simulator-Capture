@@ -74,7 +74,8 @@
 
 - (id)initWithScreenRect:(CGRect)screenRect frameLocation:(CGPoint)frameLocation videoSize:(CGSize)videoSize frameImage:(NSImage *)frameImage
 {
-	if (self = [super init]) {
+	self = [super init];
+	if (self != nil) {
 		_screenRect = screenRect;
 		_frameLocation = frameLocation;
 		_videoSize = videoSize;

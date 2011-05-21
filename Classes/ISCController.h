@@ -51,7 +51,7 @@
 	//the window that has the record button. resize it when we save
 	IBOutlet NSButton *recordButton;
 	
-	NSURL *saveURL;
+	NSURL *_saveURL;
 }
 
 @property (nonatomic, retain) IBOutlet NSMenuItem *menu;

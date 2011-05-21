@@ -53,7 +53,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(ISCAppDelegateDelay)
 
 - (id)init
 {
-	if (self = [super init]) {
+	self = [super init];
+	if (self != nil) {
 		delayedTermination = NO;
 		shouldTerminate = YES;
 		

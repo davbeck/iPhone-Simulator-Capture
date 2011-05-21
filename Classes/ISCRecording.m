@@ -40,16 +40,23 @@ NSString *ISCRecordPointerKey = @"ISCRecordPointer";
 NSString *ISCShowFrameKey = @"ISCShowFrame";
 NSString *ISCBackgroundColorKey = @"ISCBackgroundColor";
 
+
+@interface ISCRecording ()
+
+- (void)_didFinsihRendering;
+
+@end
+
+
 @implementation ISCRecording
 
 @synthesize delegate;
-@synthesize length;
-@synthesize _movie;
+@synthesize length=_length;
+@synthesize movie=_movie;
 
 - (void)dealloc
 {
 	[_movie release];
-	[frames release];
 	[startTime release];
 	[_backgroundColor release];
 	
@@ -80,7 +87,7 @@ NSString *ISCBackgroundColorKey = @"ISCBackgroundColor";
 - (NSTimeInterval)length
 {
 	if (startTime == nil) {
-		return length;
+		return _length;
 	}
 	
 	return [[NSDate date] timeIntervalSinceDate:startTime];
@@ -91,6 +98,7 @@ NSString *ISCBackgroundColorKey = @"ISCBackgroundColor";
 {
 	return captureTimer != nil;
 }
+
 - (void)setIsRecording:(BOOL)nIsRecording
 {
 	if (nIsRecording && captureTimer == nil) {
@@ -101,10 +109,10 @@ NSString *ISCBackgroundColorKey = @"ISCBackgroundColor";
 }
 
 //movie
-- (QTMovie *)moviee
+- (QTMovie *)movie
 {
 	//only return the movie if it is finished rendering
-	if ([frames count] > 0) {
+	if ([_renderQueue operationCount] > 1) {//the last operation is the finished operation
 		return nil;
 	}
 	return _movie;
@@ -129,8 +137,6 @@ NSString *ISCBackgroundColorKey = @"ISCBackgroundColor";
 {
 	startTime = [[NSDate alloc] init];
 	
-	frames = [[NSMutableArray alloc] init];
-	
 	_withPointer = [[[NSUserDefaults standardUserDefaults] objectForKey:ISCRecordPointerKey] boolValue];
 	_withFrame = [[[NSUserDefaults standardUserDefaults] objectForKey:ISCShowFrameKey] boolValue];
 	_backgroundColor = [[self backgroundColor] retain];
@@ -138,6 +144,8 @@ NSString *ISCBackgroundColorKey = @"ISCBackgroundColor";
 	_movie = [[QTMovie alloc] initToWritableData:[NSMutableData data] error:nil];
 	[_movie setAttribute:[NSNumber numberWithLong:20] forKey:QTMovieTimeScaleAttribute];
 	[_movie detachFromCurrentThread];
+	
+	[_renderQueue cancelAllOperations];
 	
 	//capture the view/cursor every frame
 	captureTimer = [NSTimer timerWithTimeInterval:kFrameRate target:self selector:@selector(recordFrame) userInfo:nil repeats:YES];
@@ -147,18 +155,21 @@ NSString *ISCBackgroundColorKey = @"ISCBackgroundColor";
 
 - (void)stop
 {
-	//stop captureing frames
-	[captureTimer invalidate];
-	captureTimer = nil;
-	
-	length = [[NSDate date] timeIntervalSinceDate:startTime];
-	//free starting time
-	[startTime release];
-	startTime = nil;
-	
-	[_renderQueue addOperationWithBlock:^{
-		NSLog(@"movie: %@", _movie);
-	}];
+	if (captureTimer != nil) {
+		//stop captureing frames
+		[captureTimer invalidate];
+		captureTimer = nil;
+		
+		_length = [[NSDate date] timeIntervalSinceDate:startTime];
+		//free starting time
+		[startTime release];
+		startTime = nil;
+		
+		[_renderQueue addOperationWithBlock:^{
+			[self _didFinsihRendering];
+			NSLog(@"movie: %@", _movie);
+		}];
+	}
 }
 
 
@@ -184,19 +195,15 @@ NSString *ISCBackgroundColorKey = @"ISCBackgroundColor";
 	ISCFrame *frame = [[ISCFrame alloc] initWithScreenshot:screenshot
 											   isMouseDown:[NSEvent pressedMouseButtons] ==  kLeftMouseDown 
 												  location:locationInView 
-											   orientation:[[NSApp delegate] orientation]];
+											   orientation:[(MonitorController *)[NSApp delegate] orientation]];
 	
-	//add all the values of this frame to a dictionary and add that to the array
-	//[frames addObject:frame];
 	[_renderQueue addOperationWithBlock:^{
 		[_movie attachToCurrentThread];
 		
 		NSImage *frameImage = [frame renderedImageWithPointer:_withPointer overlay:_withFrame background:_backgroundColor];
 		[self addFrameToMovie:frameImage withColor:[self backgroundColor]];
 		
-		[self performSelectorOnMainThread:@selector(updateRenderingProgress)
-							   withObject:nil 
-							waitUntilDone:NO];
+		[self performSelectorOnMainThread:@selector(updateRenderingProgress) withObject:nil waitUntilDone:NO];
 		
 		[_movie detachFromCurrentThread];
 	}];
@@ -207,86 +214,6 @@ NSString *ISCBackgroundColorKey = @"ISCBackgroundColor";
 	if ([delegate respondsToSelector:@selector(ISCRecordingLengthChanged:)]) {
 		[delegate ISCRecordingLengthChanged:self];
 	}
-}
-
-#pragma mark -
-#pragma mark Rendering
-
-- (void)generateMovie
-{
-	if (_movie == nil) {
-		//initialize the movie in the main thread
-		_movie = [[QTMovie alloc] initToWritableData:[NSMutableData data] error:nil];
-		[_movie detachFromCurrentThread];
-	}
-	
-	//process on background thread because it takes forever to render
-	[self performSelectorInBackground:@selector(render) withObject:nil];
-}
-
-- (void)render
-{
-	//initialize an autoreleasepool since we are in a different thread
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	
-	[ISCAppDelegateDelay sharedInstance].shouldTerminate = NO;
-	
-	//the initial value. makes sure it doesn't change in the middle
-	BOOL withPointer = [[[NSUserDefaults standardUserDefaults] objectForKey:ISCRecordPointerKey] boolValue];
-	BOOL withFrame = [[[NSUserDefaults standardUserDefaults] objectForKey:ISCShowFrameKey] boolValue];
-	
-	NSData *colorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"ISCBackgroundColor"];
-	NSColor *backgroundColor = nil;
-	if ([colorData length] > 0) {
-		backgroundColor = (NSColor *)[NSUnarchiver unarchiveObjectWithData:colorData];
-	} else {
-		backgroundColor = [NSColor blackColor];
-	}
-	
-#ifdef DEBUG_MODE
-	NSDate *startRender = [NSDate date];
-#endif
-	
-	NSInteger initialCount = [frames count];
-	NSAutoreleasePool *sPool;
-	NSImage *frameImage;
-	ISCFrame *frame;
-	
-	[_movie attachToCurrentThread];
-	
-	while ([frames count] > 0) {
-		//this is memory intensive so create another pool we can drain every cycle
-		sPool = [[NSAutoreleasePool alloc] init];
-		
-		frame = [frames objectAtIndex:0];
-		
-		frameImage = [frame renderedImageWithPointer:withPointer overlay:withFrame background:backgroundColor];
-		
-		//add the generated image to the movie
-		[self addFrameToMovie:frameImage withColor:backgroundColor];
-		
-		[frames removeObjectAtIndex:0];
-		
-		[self performSelectorOnMainThread:@selector(renderingProgress:)
-							   withObject:[NSNumber numberWithDouble:1.0 - (double)[frames count] / (double)initialCount] 
-							waitUntilDone:NO];
-		
-		[sPool drain];
-	}
-	
-	[_movie detachFromCurrentThread];
-	
-#ifdef DEBUG_MODE
-	NSLog(@"render/record: %f", [[NSDate date] timeIntervalSinceDate:startRender] / [self length]);
-#endif
-	
-	[self performSelectorOnMainThread:@selector(didFinsihRendering) 
-						   withObject:nil 
-						waitUntilDone:NO];
-	
-	[ISCAppDelegateDelay sharedInstance].shouldTerminate = YES;
-	
-	[pool drain];
 }
 
 - (void)addFrameToMovie:(NSImage *)image withColor:(NSColor *)color
@@ -311,27 +238,28 @@ NSString *ISCBackgroundColorKey = @"ISCBackgroundColor";
 	[attrs release];
 }
 
-#pragma mark -
-#pragma mark Delegate Messages
-//we have to use NSNumber to use performSelectorInMainThread:
-- (void)renderingProgress:(NSNumber *)progress
-{
-	if ([progress doubleValue] - _lastProgress > 0.01) {
-		if ([delegate respondsToSelector:@selector(ISCRecording:renderingProgress:)]) {
-			[delegate ISCRecording:self renderingProgress:[progress doubleValue]];
-		}
-	}
-}
+#pragma mark - Delegate Messages
 
 - (void)updateRenderingProgress
 {
-	NSLog(@"movieLength: %lld %ld", [_movie duration].timeValue, [_movie duration].timeScale);
+	//minus 1 for the current operation and minus 1 for the finished operation
+	double progress = (double)[_movie duration].timeValue / (double)([_movie duration].timeValue + [_renderQueue operationCount] - 2);
+	if (progress - _lastProgress > 0.005) {
+		_lastProgress = progress;
+		
+		if ([delegate respondsToSelector:@selector(ISCRecording:renderingProgress:)]) {
+			[delegate ISCRecording:self renderingProgress:progress];
+		}
+		
+		NSLog(@"progress: %f", progress * 100.0);
+	}
 }
 
-- (void)didFinsihRendering
+- (void)_didFinsihRendering
 {
+	NSLog(@"didFinsihRendering");
 	if ([delegate respondsToSelector:@selector(ISCRecordingDidFinishRendering:)]) {
-		[delegate ISCRecordingDidFinishRendering:self];
+		[delegate performSelectorOnMainThread:@selector(ISCRecordingDidFinishRendering:) withObject:self waitUntilDone:YES];
 	}
 }
 
