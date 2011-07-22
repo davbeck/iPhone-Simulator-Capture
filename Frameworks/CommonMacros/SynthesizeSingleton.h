@@ -60,7 +60,7 @@ return self; \
 return NSUIntegerMax; \
 } \
 \
-- (void)release \
+- (oneway void)release \
 { \
 } \
 \

@@ -29,10 +29,8 @@
 		<dict>
 			<key>BundleIdentifier</key>
 			<string>com.apple.iphonesimulator</string>
-			<key>MaxBundleVersion</key>
-			<string>238.2</string>
 			<key>MinBundleVersion</key>
-			<string>3.2 (193.8)</string>
+			<string>193.8</string>
 		</dict>
 	</array>
 </dict>
