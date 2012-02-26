@@ -179,7 +179,7 @@ NSString *ISCBackgroundColorKey = @"ISCBackgroundColor";
 - (void)recordFrame
 {
 	//the window of the simulator
-	NSWindow *simulatorWindow = [[NSApp windows] objectAtIndex:0];
+	NSWindow *simulatorWindow = [[NSApp delegate] monitorWindow];
 	//the view that shows the simulated screenshot
 	//SimulatorView *simulatorView = [[[simulatorWindow contentView] subviews] objectAtIndex:1];
 	SimulatorView *simulatorView = [[NSApp delegate] simulatorView];
