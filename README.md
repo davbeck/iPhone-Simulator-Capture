@@ -1,3 +1,7 @@
+**Deprecated** - This project is no longer maintained primarily because there are much better solutions now. This repo is for reference only.
+
+----
+
 This plugin requires that you install SIMBL http://www.culater.net/software/SIMBL/SIMBL.php.
 
 To install the plugin, place it in "~/Library/Application Support/SIMBL/Plugins". create it if it doesn't 
