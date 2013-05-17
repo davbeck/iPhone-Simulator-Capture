@@ -1,4 +1,5 @@
-**Deprecated** - This project is no longer maintained primarily because there are much better solutions now. This repo is for reference only.
+**Deprecated** - This project is no longer maintained primarily because there are much better solutions now.
+This repo is for reference only. A good alternative is [Reflector](http://www.reflectorapp.com).
 
 ----
 
